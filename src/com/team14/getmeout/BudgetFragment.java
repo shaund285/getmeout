@@ -11,7 +11,6 @@ import android.widget.EditText;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 
-
 public class BudgetFragment extends Fragment implements OnClickListener{
 	
 	public static enum PlanningMode {
@@ -53,12 +52,10 @@ public class BudgetFragment extends Fragment implements OnClickListener{
 		}
 		//get planning mode
 		
-		Fragment listFragment = null; new EventListFragment(budget);
+		Fragment listFragment = new EventListFragment(budget);
 		FragmentManager fm = this.getFragmentManager();
 		FragmentTransaction ft = fm.beginTransaction();
 		ft.replace(R.id.fragment_container, listFragment);
-		ft.commit();
+		ft.commit();	
 	}
-	
-	
 }
