@@ -4,5 +4,7 @@
     <string name="app_name">GetMeOut</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+    <string name="budget_fragment_mode_week">This Week</string>
+    <string name="budget_fragment_mode_today">Today</string>
 
 </resources>
