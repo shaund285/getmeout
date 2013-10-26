@@ -1,9 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:id="@+id/fragment_container">
 
-</RelativeLayout>
+<fragment
+    class="com.google.android.gms.maps.MapFragment"
+    android:id="@+id/map"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+/>
+
+<fragment
+    class="com.team14.getmeout.EventDetailsFragmant"
+    android:id="@+id/details"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    />
+
+</LinearLayout>
