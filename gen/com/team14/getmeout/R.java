@@ -25,14 +25,20 @@ public final class R {
         public static final int ic_launcher=0x7f020001;
     }
     public static final class id {
-        public static final int action_settings=0x7f080002;
-        public static final int event_list_view=0x7f080001;
+        public static final int action_settings=0x7f080007;
+        public static final int date_view=0x7f080006;
+        public static final int details_view=0x7f080004;
+        public static final int event_image=0x7f080003;
+        public static final int event_row=0x7f080001;
         public static final int fragment_container=0x7f080000;
+        public static final int name_view=0x7f080002;
+        public static final int price_view=0x7f080005;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
         public static final int budget_fragment_layout=0x7f030001;
         public static final int event_list_fragment_layout=0x7f030002;
+        public static final int event_row_view=0x7f030003;
     }
     public static final class menu {
         public static final int main=0x7f070000;

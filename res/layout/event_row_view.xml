@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="150dp"
+    android:id="@+id/event_row"
+    android:background="#000">
+
+    <TextView
+        android:id="@+id/name_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/event_image"
+        android:layout_marginLeft="16dp"
+        android:layout_toRightOf="@+id/event_image"
+        android:text="name"
+        android:textColor="#fff" />
+
+    <TextView
+        android:id="@+id/details_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/event_image"
+        android:layout_alignLeft="@+id/name_view"
+        android:text="details" 
+        android:textColor="#fff"/>
+
+    <ImageView
+        android:id="@+id/event_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="21dp"
+        android:src="@drawable/ic_contact_picture_3" />
+
+            <TextView
+                android:id="@+id/price_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/name_view"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="14dp"
+                android:text="price"
+                android:textColor="#fff" />
+
+            <TextView
+                android:id="@+id/date_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_marginBottom="26dp"
+                android:text="date"
+                android:textColor="#fff" />
+
+</RelativeLayout>

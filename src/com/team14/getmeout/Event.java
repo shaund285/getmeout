@@ -27,6 +27,7 @@ public class Event {
 	 */
 	public Event(Context context, JSONObject eventJson) throws JSONException{
 		name = eventJson.getString(JSON_NAME);
+		//TODO pic needs to come from json
 		pic = BitmapFactory.decodeResource(context.getResources(), R.drawable.ic_contact_picture_3);
 		details = eventJson.getString(JSON_DETAILS);
 		venue = new Venue (eventJson.getJSONObject(JSON_VENUE));
@@ -35,6 +36,11 @@ public class Event {
 	
 	public String getName(){
 		return name;
+	}
+	
+	public float getTotalPrice(){
+		//TODO: calculate the total price given the deal and transport 
+		return 10;
 	}
 	
 	public Venue getVenue(){
