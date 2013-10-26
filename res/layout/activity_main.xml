@@ -6,18 +6,4 @@
     android:layout_height="fill_parent"
     android:id="@+id/fragment_container">
 
-<fragment
-    class="com.google.android.gms.maps.MapFragment"
-    android:id="@+id/map"
-    android:layout_width="match_parent"
-    android:layout_height="100dp"
-/>
-
-<fragment
-    class="com.team14.getmeout.EventDetailsFragmant"
-    android:id="@+id/details"
-    android:layout_width="match_parent"
-    android:layout_height="fill_parent"
-    />
-
 </LinearLayout>
