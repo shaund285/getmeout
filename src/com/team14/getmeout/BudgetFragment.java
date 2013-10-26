@@ -74,7 +74,6 @@ public class BudgetFragment extends Fragment implements OnClickListener{
 				}
 				//switch fragment
 				Fragment listFragment = new EventListFragment(budget, start, end);
-				budgetField.setText(start.toGMTString() + " " + end.toGMTString());
 				FragmentManager fm = this.getFragmentManager();
 				FragmentTransaction ft = fm.beginTransaction();
 				ft.replace(R.id.fragment_container, listFragment);
