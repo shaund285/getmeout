@@ -40,6 +40,7 @@ import android.view.animation.Animation;
 import android.view.animation.OvershootInterpolator;
 import android.view.animation.Transformation;
 import android.widget.Button;
+import android.widget.ImageView;
 
 @SuppressLint("ValidFragment")
 public class EventListFragment extends ListFragment{
@@ -53,6 +54,7 @@ public class EventListFragment extends ListFragment{
 	View filterTray;
 	View intensityTray;
 	View catagoryTray;
+	ImageView[] shots;
 	
 	public EventListFragment(float budget, Date start, Date end){
 		super();
@@ -142,6 +144,45 @@ public class EventListFragment extends ListFragment{
 			}
         	
         });
+        
+        this.shots = new ImageView [5];
+        shots[4] = (ImageView)intensityTray.findViewById(R.id.shot5);
+        shots[3] = (ImageView)intensityTray.findViewById(R.id.shot4);
+        shots[2] = (ImageView)intensityTray.findViewById(R.id.shot3);
+        shots[1] = (ImageView)intensityTray.findViewById(R.id.shot2);
+        shots[0] = (ImageView)intensityTray.findViewById(R.id.shot1);
+        for (int i = 0; i < shots.length; i++) {
+        	shots[i].setOnClickListener(new OnClickListener(){
+        		@Override
+    			public void onClick(View v) {
+    				switch (v.getId()) {
+    				case R.id.shot5:
+    					this.updateShot(4);
+    					break;
+    				case R.id.shot4:
+    					this.updateShot(3);
+    					break;
+    				case R.id.shot3:
+    					this.updateShot(2);
+    					break;
+    				case R.id.shot2:
+    					this.updateShot(1);
+    					break;
+    				case R.id.shot1:
+    					this.updateShot(0);
+    				}
+        		}
+
+				private void updateShot(int i) {
+					for (int j = 0; j <= i; j++) {
+						shots[j].setImageResource(R.drawable.shotglass_icon);
+					}
+					for (int k = i + 1; k < shots.length; k++) {
+						shots[k].setImageResource(R.drawable.clock_icon);
+					}	
+				}
+        	});
+        }
 		return view;
  	}
 	
