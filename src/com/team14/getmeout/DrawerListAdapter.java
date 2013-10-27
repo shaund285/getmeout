@@ -56,7 +56,11 @@ public class DrawerListAdapter extends ArrayAdapter<CalendarEntry> {
 					eventJson.put("deal", dealJson);
 					Date d = new Date();
 					d.setDate(i % 2);
-					eventJson.put("date", String.valueOf(d.getTime()));
+					eventJson.put("date", d.toGMTString());
+					JSONArray contacts = new JSONArray();
+					contacts.put(1);
+					contacts.put(2);
+					eventJson.put("going", contacts);
 					
 					list.add(new Event(this.getContext(), eventJson));
 				}catch(JSONException e){
@@ -81,7 +85,7 @@ public class DrawerListAdapter extends ArrayAdapter<CalendarEntry> {
 			TextView price = (TextView) view.findViewById(R.id.drawer_event_price);
 			price.setText("£" + String.valueOf(evt.getTotalPrice()));
 			TextView venue = (TextView) view.findViewById(R.id.drawer_event_venue);
-			venue.setText(evt.getVenue().getPrice()); //this actually is the name of the venue, not the price
+			venue.setText(evt.getVenue().getName()); //this actually is the name of the venue, not the price
 			TextView going = (TextView) view.findViewById(R.id.drawer_event_going);
 			going.setText(String.valueOf(evt.getGoingContacts().length));
 		}

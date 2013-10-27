@@ -1,5 +1,7 @@
 package com.team14.getmeout;
 
+import java.util.Date;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -15,12 +17,14 @@ public class Event {
 	private final Deal deal;
 	private long millisDate;
 	private final String details;
+	private final Contact[] goingContacts;
 	
 	private static final String JSON_NAME = "name";
 	private static final String JSON_DETAILS = "details";
 	private static final String JSON_DEAL = "deal";
 	private static final String JSON_VENUE = "venue";
 	private static final String JSON_DATE = "date";
+	private static final String JSON_GOING = "going";
 	
 	/**
 	 * 
@@ -34,7 +38,9 @@ public class Event {
 		details = eventJson.getString(JSON_DETAILS);
 		venue = new Venue (eventJson.getJSONObject(JSON_VENUE));
 		deal = new Deal(eventJson.getJSONObject(JSON_DEAL));
-		millisDate = eventJson.getLong(JSON_DATE);
+		millisDate = new Date(eventJson.getString(JSON_DATE)).getTime();
+		//demo solution, just get the length
+		goingContacts = new Contact [eventJson.getJSONArray(JSON_GOING).length()];
 	}
 	
 	public String getName(){
@@ -47,8 +53,7 @@ public class Event {
 	}
 	
 	public Contact [] getGoingContacts(){
-		//TODO
-		return new Contact [3];
+		return goingContacts;
 	}
 	
 	public float getTotalPrice(){
@@ -106,7 +111,7 @@ public class Event {
 			coords[1] = (float) coordsArray.getDouble(1);
 		}
 		
-		public String getPrice(){
+		public String getName(){
 			return name;
 		}
 		

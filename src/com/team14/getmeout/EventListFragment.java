@@ -9,14 +9,17 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -41,6 +44,8 @@ import android.widget.Button;
 @SuppressLint("ValidFragment")
 public class EventListFragment extends ListFragment{
 	
+	private URI eventsGetterUri = null;
+	
 	private EventListAdapter mAdapter;
 	private final Date startDate;
 	private final Date endDate;
@@ -54,21 +59,22 @@ public class EventListFragment extends ListFragment{
 		mBudget = budget;
 		endDate = end;
 		startDate = start;
+		try {
+			this.eventsGetterUri = new URI("http://www.sth.com");
+		} 
+		catch (URISyntaxException e) {
+			Log.e("URI error", "Invaldi URI");
+		}
 	}
 	
 	@Override
     public void onActivityCreated(Bundle savedInstanceState){
     	super.onActivityCreated(savedInstanceState);
      
-		mAdapter = new EventListAdapter(getActivity(), R.layout.event_row_view, null);
+		mAdapter = new EventListAdapter(getActivity(), R.layout.event_row_view, new ArrayList<Event>());
 		
-		try {
-			new EventsGetter().execute(new URI("http://uri.com"));
-		} catch (URISyntaxException e) {
-			// TODO
-			Log.e("URI error", "Invaldi URI");
-		}
-        	
+		new EventsGetter().execute(this.eventsGetterUri);
+			
         setListAdapter(mAdapter);           
     }
 	
@@ -188,9 +194,14 @@ public class EventListFragment extends ListFragment{
 		@Override
 		protected JSONArray doInBackground(URI... uri) {
 			HttpClient client = new DefaultHttpClient();
-			HttpGet req = new HttpGet(uri[0]);
+			HttpPost req = new HttpPost(uri[0]);
 			HttpResponse response;
 			try {
+				List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(3);
+		        nameValuePairs.add(new BasicNameValuePair("budget", String.valueOf(mBudget)));
+		        nameValuePairs.add(new BasicNameValuePair("start", String.valueOf(startDate.getTime())));
+		        nameValuePairs.add(new BasicNameValuePair("end", String.valueOf(endDate.getTime())));
+		        req.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 				response = client.execute(req);
 				HttpEntity entity = response.getEntity();
 				InputStream istream = entity.getContent();

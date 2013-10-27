@@ -8,6 +8,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+//stub
+@SuppressLint("ValidFragment")
+public class EventPageFragment extends Fragment {
+	
+	public EventPageFragment(Event event) {
+		
+	}
+}
+/*
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
@@ -65,3 +74,4 @@ public class EventPageFragment extends Fragment {
 		.position(sydney));	
 	}
 }
+*/
