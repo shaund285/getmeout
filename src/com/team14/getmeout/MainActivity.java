@@ -1,8 +1,9 @@
 package com.team14.getmeout;
 
+import java.util.Date;
+
 import android.app.Activity;
 import android.app.Fragment;
-import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -49,7 +50,28 @@ public class MainActivity extends Activity {
         this.getActionBar().setDisplayHomeAsUpEnabled(true);
         this.getActionBar().setHomeButtonEnabled(true);
 		
-		Fragment fragment = new BudgetFragment();
+		Bundle extras = this.getIntent().getExtras();
+		float budget = extras.getFloat("budget");
+		int timeFrame = extras.getInt("timeFrame");
+		
+		Date startDate = new Date();
+		Date endDate = new Date();
+		
+		switch(timeFrame){
+		case(1):
+			endDate.setDate(startDate.getDay()+1);
+			break;
+		case(2):
+			startDate.setDate((new Date()).getDay()+1);
+			endDate.setDate(startDate.getDay()+2);
+			break;
+		case(3):
+		default:
+			endDate.setDate(startDate.getDay()+7);
+		}
+		
+		
+		Fragment fragment = new EventListFragment(budget,startDate,endDate);
 		FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
 		fragmentTransaction.add(R.id.fragment_container, fragment);
 		fragmentTransaction.commit();
