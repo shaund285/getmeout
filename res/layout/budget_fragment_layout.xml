@@ -19,20 +19,20 @@
             android:layout_centerHorizontal="true"
             android:src="@drawable/logo" />
 
-        <TextView
+      <!--  <TextView
             android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/imageView1"
             android:layout_centerHorizontal="true"
-            android:text="@string/logo_name" 
+            android:text="@string/logo_name"
             android:textColor="#fff"
             android:shadowColor="#000"
             android:shadowDx="2"
             android:shadowDy="2"
             android:textSize="50sp"
             android:fontFamily="sans-serif-condensed" />
-        
+        -->
     </RelativeLayout>
 	    
     

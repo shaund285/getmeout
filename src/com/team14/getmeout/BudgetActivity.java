@@ -33,8 +33,13 @@ public class BudgetActivity extends Activity {
 	    budgetEdt.setOnClickListener(new OnClickListener(){
 
 			@Override
+<<<<<<< HEAD
 			public void onClick(View v) {
 				// TODO keep the £ sign 
+=======
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+>>>>>>> 5a0e05ca1bb5767e3b9d2143256226346db65f3e
 				
 			}
 

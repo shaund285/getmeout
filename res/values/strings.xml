@@ -6,6 +6,9 @@
     <string name="hello_world">Hello world!</string>
     <string name="budget_fragment_mode_week">This Week</string>
     <string name="budget_fragment_mode_today">Today</string>
+    <string name="drawer_title">Title</string>
+    <string name="accessibility_drawer_open">drawer open</string>
+    <string name="accessibility_drawer_close">drawer close</string>
     <string name="logo_name">"Get Me Out "</string>
 
 </resources>

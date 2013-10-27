@@ -20,6 +20,7 @@ public class Event {
 	private static final String JSON_DETAILS = "details";
 	private static final String JSON_DEAL = "deal";
 	private static final String JSON_VENUE = "venue";
+	private static final String JSON_DATE = "date";
 	
 	/**
 	 * 
@@ -33,6 +34,7 @@ public class Event {
 		details = eventJson.getString(JSON_DETAILS);
 		venue = new Venue (eventJson.getJSONObject(JSON_VENUE));
 		deal = new Deal(eventJson.getJSONObject(JSON_DEAL));
+		millisDate = eventJson.getLong(JSON_DATE);
 	}
 	
 	public String getName(){
