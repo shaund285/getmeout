@@ -13,6 +13,7 @@ public class Event {
 	private final Venue venue;
 	private final Bitmap pic;
 	private final Deal deal;
+	private long millisDate;
 	private final String details;
 	
 	private static final String JSON_NAME = "name";
@@ -36,6 +37,16 @@ public class Event {
 	
 	public String getName(){
 		return name;
+	}
+	
+	
+	public long getDate(){	
+		return millisDate;
+	}
+	
+	public Contact [] getGoingContacts(){
+		//TODO
+		return new Contact [3];
 	}
 	
 	public float getTotalPrice(){

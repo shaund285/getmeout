@@ -58,4 +58,6 @@ public class ContactListFragment extends ListFragment{
 	
 		return eventList;
 	}
+
+	
 }

@@ -7,13 +7,21 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.app.ListFragment;
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.view.ViewGroup.LayoutParams;
+import android.view.animation.Animation;
+import android.view.animation.OvershootInterpolator;
+import android.view.animation.Transformation;
+import android.widget.Button;
 
 @SuppressLint("ValidFragment")
 public class EventListFragment extends ListFragment{
@@ -22,6 +30,9 @@ public class EventListFragment extends ListFragment{
 	private final Date startDate;
 	private final Date endDate;
 	private final float mBudget;
+	View filterTray;
+	View intensityTray;
+	View catagoryTray;
 	
 	public EventListFragment(float budget, Date start, Date end){
 		super();
@@ -49,9 +60,108 @@ public class EventListFragment extends ListFragment{
 		
         this.setListAdapter(mAdapter);
         
-		return inflater.inflate(R.layout.event_list_fragment_layout, container, false); 
+        View view = (View) inflater.inflate(R.layout.event_list_fragment_layout, container, false); 
+        
+        filterTray = view.findViewById(R.id.filter_tray);
+        intensityTray = view.findViewById(R.id.intensity_tray);
+        catagoryTray = view.findViewById(R.id.catagory_tray);
+        
+        Button intensityBtn = (Button) view.findViewById(R.id.intensity_btn);
+        intensityBtn.setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View v) {
+				if(filterTray.getVisibility() == View.GONE){
+					intensityTray.setVisibility(View.VISIBLE);
+					catagoryTray.setVisibility(View.GONE);
+					expand(getActivity(),filterTray);
+				} else {
+					if(intensityTray.getVisibility() == View.GONE){
+						catagoryTray.setVisibility(View.GONE);
+						intensityTray.setVisibility(View.VISIBLE);
+					}else{
+						collapse(filterTray);
+					}
+				}
+			}
+        	
+        });
+        
+        Button catagoryBtn = (Button) view.findViewById(R.id.catagory_btn);
+        catagoryBtn.setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View v) {
+				if(filterTray.getVisibility() == View.GONE){
+					intensityTray.setVisibility(View.GONE);
+					catagoryTray.setVisibility(View.VISIBLE);	
+					expand(getActivity(),filterTray);
+				} else {
+					if(catagoryTray.getVisibility() == View.GONE){
+						catagoryTray.setVisibility(View.VISIBLE);
+						intensityTray.setVisibility(View.GONE);
+					}else{
+						
+						collapse(filterTray);
+					}
+				}
+			}
+        	
+        });
+		return view;
  	}
 	
+
+	public static void expand(Context context, final View v) {
+	
+	    v.measure(LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT);
+	    final int targtetHeight = v.getMeasuredHeight();
+
+	    final LayoutParams lp = v.getLayoutParams();
+	    v.getLayoutParams().height = 1;
+	    v.setVisibility(View.VISIBLE);
+	    
+	    int mAnimationTime = context.getResources().getInteger(android.R.integer.config_shortAnimTime);
+	    
+	    android.animation.ValueAnimator animator = ValueAnimator.ofInt(1, targtetHeight).setDuration(mAnimationTime);
+ 
+        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator valueAnimator) {
+                lp.height = (Integer) valueAnimator.getAnimatedValue();
+                v.setLayoutParams(lp);
+            }
+        });
+        
+        animator.setInterpolator(new OvershootInterpolator());
+	    animator.start();
+	}
+
+	public static void collapse(final View v) {
+	    final int initialHeight = v.getMeasuredHeight();
+
+	    Animation a = new Animation()
+	    {
+	        @Override
+	        protected void applyTransformation(float interpolatedTime, Transformation t) {
+	            if(interpolatedTime == 1){
+	                v.setVisibility(View.GONE);
+	            }else{
+	                v.getLayoutParams().height = initialHeight - (int)(initialHeight * interpolatedTime);
+	                v.requestLayout();
+	            }
+	        }
+
+	        @Override
+	        public boolean willChangeBounds() {
+	            return true;
+	        }
+	    };
+
+	    // 1dp/ms
+	    a.setDuration((int)(initialHeight / v.getContext().getResources().getDisplayMetrics().density));
+	    v.startAnimation(a);
+	}
 	
 	private ArrayList<Event> getEvents(){
 		ArrayList<Event> eventList = new ArrayList<Event>();
