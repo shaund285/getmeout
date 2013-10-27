@@ -16,8 +16,7 @@ import android.app.FragmentTransaction;
 public class BudgetFragment extends Fragment implements OnClickListener{
 	
 	@Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.budget_fragment_layout, container, false);
         

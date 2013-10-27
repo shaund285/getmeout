@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="80dp">
+        <ImageView
+            android:id="@+id/drawer_event_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="14dp"
+            android:src="@drawable/ic_launcher" />
+
+        <TextView
+            android:id="@+id/drawer_event_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/drawer_event_string"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="36dp"
+            android:text="£20" />
+
+        <TextView
+            android:id="@+id/drawer_event_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/drawer_event_image"
+            android:layout_marginLeft="18dp"
+            android:layout_toRightOf="@+id/drawer_event_image"
+            android:text="Name" />
+
+        <TextView
+            android:id="@+id/drawer_event_venue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/drawer_event_image"
+            android:layout_alignLeft="@+id/drawer_event_string"
+            android:text="Venue" />
+
+        <TextView
+            android:id="@+id/drawer_event_going"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/textView1"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="18dp"
+            android:text="5 going" />
+
+</RelativeLayout>
