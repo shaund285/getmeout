@@ -3,7 +3,55 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-
+	
+	<LinearLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="40dp"
+	    android:orientation="horizontal" >
+		<Button 
+		    android:id="@+id/intensity_btn"
+		    android:layout_width="0px"
+	    	android:layout_height="match_parent"
+	    	android:text="Intensity"
+	    	android:layout_weight="1"/>
+		<Button 
+		    android:id="@+id/catagory_btn"
+		    android:layout_width="0px"
+	    	android:layout_height="match_parent"
+	    	android:text="Catagory"
+	    	android:layout_weight="1"/>
+	</LinearLayout>
+	<RelativeLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:visibility="gone"
+	    android:id="@+id/filter_tray"
+	    android:background="#000">
+	    
+	    <RelativeLayout 
+	        android:layout_width="match_parent"
+	        android:layout_margin="0dp"
+	    	android:layout_height="60dp"
+	    	android:visibility="gone"
+	    	android:background="#f00"
+	    	android:id="@+id/catagory_tray"
+	        >
+	        
+	    </RelativeLayout>
+	    
+	    <RelativeLayout 
+	        android:layout_width="match_parent"
+	        android:layout_margin="0dp"
+	    	android:layout_height="60dp"
+	    	android:visibility="gone"
+	    	android:background="#0f0"
+	    	android:id="@+id/intensity_tray"
+	        >
+	        
+	    </RelativeLayout>
+	    
+	</RelativeLayout>
+    
     <ListView
         android:id="@android:id/list"
         android:layout_width="match_parent"
