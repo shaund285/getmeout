@@ -1,8 +1,22 @@
 package com.team14.getmeout;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Date;
 
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -11,6 +25,7 @@ import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.app.ListFragment;
 import android.content.Context;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -45,9 +60,14 @@ public class EventListFragment extends ListFragment{
     public void onActivityCreated(Bundle savedInstanceState){
     	super.onActivityCreated(savedInstanceState);
      
-        ArrayList<Event> eventArray = getEvents();
-			
-		mAdapter = new EventListAdapter(getActivity(), R.layout.event_row_view, eventArray);
+		mAdapter = new EventListAdapter(getActivity(), R.layout.event_row_view, null);
+		
+		try {
+			new EventsGetter().execute(new URI("http://uri.com"));
+		} catch (URISyntaxException e) {
+			// TODO
+			Log.e("URI error", "Invaldi URI");
+		}
         	
         setListAdapter(mAdapter);           
     }
@@ -163,35 +183,52 @@ public class EventListFragment extends ListFragment{
 	    v.startAnimation(a);
 	}
 	
-	private ArrayList<Event> getEvents(){
-		ArrayList<Event> eventList = new ArrayList<Event>();
+	private class EventsGetter extends AsyncTask<URI, Integer, JSONArray> {
+
+		@Override
+		protected JSONArray doInBackground(URI... uri) {
+			HttpClient client = new DefaultHttpClient();
+			HttpGet req = new HttpGet(uri[0]);
+			HttpResponse response;
+			try {
+				response = client.execute(req);
+				HttpEntity entity = response.getEntity();
+				InputStream istream = entity.getContent();
+				if (istream == null) {
+					//error
+					Log.e("RequestError", "Invalid Istream");
+				}
+				BufferedReader reader = new BufferedReader(new InputStreamReader(istream));
+				String jsonString = "";
+				String line = "";
+				while ((line = reader.readLine()) != null) {
+					jsonString += line;
+				}
+				istream.close();
+				return new JSONArray(jsonString);
+			}
+			catch (ClientProtocolException ex) {
+				Log.e("RequestError", ex.toString());
+			}
+			catch (IOException ex)  {
+				Log.e("RequestError", ex.toString());
+			}
+			catch (JSONException ex) {
+				Log.e("RequestError", ex.toString());
+			}
+			return null;
+		}
 		
-		for(int i = 0; i < 10; i++){
-			try{
-				
-				JSONObject dealJson = new JSONObject();
-				dealJson.put("price","10");
-				dealJson.put("details","Entrance + 2 drinks");
-				JSONObject venueJson = new JSONObject();
-				venueJson.put("name","night club");
-				JSONArray coords = new JSONArray();
-				coords.put(1.23);
-				coords.put(1.43);
-				venueJson.put("coords",coords);
-				
-				JSONObject eventJson = new JSONObject();
-				eventJson.put("name", "Mock Event");
-				eventJson.put("details", "Amazing night outs");
-				//eventJson.put("pic", value);
-				eventJson.put("venue", venueJson);
-				eventJson.put("deal", dealJson);
-				
-				eventList.add(new Event(getActivity(), eventJson));
-			}catch(JSONException e){
-				Log.wtf(getTag(), "wtf");
+		@Override
+		protected void onPostExecute(JSONArray json) {
+			try {
+				for (int i = 0; i < json.length(); i++) {
+					mAdapter.add(new Event(getActivity(), json.getJSONObject(i)));
+				}
+				mAdapter.notifyDataSetChanged();
+			} catch (JSONException e) {
+				Log.e("ParseError", "Error while parsing json response");
 			}
 		}
-	
-		return eventList;
 	}
 }
