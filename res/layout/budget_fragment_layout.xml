@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/imageView1"
             android:layout_centerHorizontal="true"
-            android:text="@string/logo_name" 
+            android:text="@string/logo_name"
             android:textColor="#fff"
             android:shadowColor="#000"
             android:shadowDx="2"
