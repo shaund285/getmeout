@@ -19,7 +19,7 @@
             android:layout_centerHorizontal="true"
             android:src="@drawable/logo" />
 
-      <!--  <TextView
+     <TextView
             android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -32,7 +32,7 @@
             android:shadowDy="2"
             android:textSize="50sp"
             android:fontFamily="sans-serif-condensed" />
-        -->
+        
     </RelativeLayout>
 	    
     
@@ -42,8 +42,9 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:background="@drawable/edit_text"
-        android:hint="£ Budget"
+        android:hint="£Budget"
         android:inputType="number"
+       
          >
 
         <requestFocus />
@@ -100,14 +101,14 @@
                 android:id="@+id/budget_fragment_layout_go"
                 android:onClick="startEventSearch"
                 style="@style/AppBaseTheme"
-                android:layout_width="152dp"
+                android:layout_width="240dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
                 android:text="GO"
                 android:textColor="#fff"
-                android:textSize="20dp"
-                android:background="#c0392b" />
+                android:textSize="30sp"
+                android:background="@drawable/home_button" />
 
     </RelativeLayout>
 	

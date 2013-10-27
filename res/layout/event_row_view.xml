@@ -41,6 +41,28 @@
 	               android:text="This is a very very long title"
 	               android:textColor="#fff"
 	               android:textSize="25dp" />
+
+	           <ImageView
+	               android:id="@+id/imageView1"
+	               android:layout_width="wrap_content"
+	               android:layout_height="60dp"
+	               android:layout_alignParentRight="true"
+	               android:layout_alignParentTop="true"
+	               android:layout_marginTop="-7dp"
+	               android:adjustViewBounds="true"
+	               android:src="@drawable/ribbon" />
+
+	           <TextView
+	               android:id="@+id/price_view"
+	               android:layout_width="wrap_content"
+	               android:layout_height="wrap_content"
+	               android:layout_alignLeft="@+id/imageView1"
+	               android:layout_alignTop="@+id/name_view"
+	               android:text="£30"
+	               android:textColor="#fff"
+	               android:layout_marginLeft="10dp"
+	               android:layout_marginTop="5dp"
+	               android:textSize="20sp" />
 	            
 	    </RelativeLayout>
   		
@@ -66,7 +88,7 @@
 	           <TextView
 	               android:layout_marginTop="4dp"
 	               android:layout_marginRight="3dp"
-	               android:id="@+id/textView1"
+	               android:id="@+id/venue_name"
 	               android:layout_width="wrap_content"
 	               android:layout_height="fill_parent"
 	               android:text="Apollo Theatre" 
@@ -90,12 +112,13 @@
 	               android:layout_marginRight="3dp"
 		            android:layout_width="10dp"
 		            android:layout_height="wrap_content"
+		            android:id="@+id/transport_view"
 		            android:src="@drawable/walk_icon"/>
 
 	           <TextView
 	               android:layout_marginTop="1dp"
 	               android:layout_marginRight="3dp"
-	               android:id="@+id/textView1"
+	               android:id="@+id/travel_time_view"
 	               android:layout_width="wrap_content"
 	               android:layout_height="fill_parent"
 	               android:text="30 mins" 
@@ -109,7 +132,7 @@
 	           <TextView
 	               android:layout_marginTop="1dp"
 	               android:layout_marginRight="3dp"
-	               android:id="@+id/textView1"
+	               android:id="@+id/date_view"
 	               android:layout_width="wrap_content"
 	               android:layout_height="fill_parent"
 	               android:text="Mon 23:00" 

@@ -33,8 +33,9 @@ public class BudgetActivity extends Activity {
 	    budgetEdt.setOnClickListener(new OnClickListener(){
 
 			@Override
-			public void onClick(View v) {
-				// TODO keep the £ sign 
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				
 			}
 
 	    	
@@ -54,7 +55,7 @@ public class BudgetActivity extends Activity {
 			this.startActivity(i);
 			
 		}else{
-			Toast.makeText(this, "You must input a budget", Toast.LENGTH_SHORT);
+			Toast.makeText(this, "You must input a budget", Toast.LENGTH_SHORT).show();
 		}
 	}
 		

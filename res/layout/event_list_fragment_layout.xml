@@ -14,49 +14,122 @@
 		    android:layout_width="0px"
 	    	android:layout_height="match_parent"
 	    	android:text="Intensity"
-	    	android:layout_weight="1"/>
+	    	android:background="@drawable/filter_btn"
+	    	android:layout_weight="1"
+	    	android:textColor="#fff"/>
 		<Button 
 		    android:id="@+id/catagory_btn"
 		    android:layout_width="0px"
 	    	android:layout_height="match_parent"
+	    	android:background="@drawable/filter_btn"
 	    	android:text="Catagory"
-	    	android:layout_weight="1"/>
+	    	android:layout_weight="1"
+	    	android:textColor="#fff"/>
 	</LinearLayout>
 	<RelativeLayout 
 	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
-	    android:visibility="gone"
+	    android:visibility="visible"
 	    android:id="@+id/filter_tray"
 	    android:background="#000">
 	    
-	    <RelativeLayout 
+	    <LinearLayout
 	        android:layout_width="match_parent"
 	        android:layout_margin="0dp"
 	    	android:layout_height="60dp"
 	    	android:visibility="gone"
-	    	android:background="#f00"
+	    	android:orientation="horizontal"
+	    	android:background="#fff"
 	    	android:id="@+id/catagory_tray"
 	        >
+
+	        <ImageView
+	            android:id="@+id/catagory_club"
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:src="@drawable/club_icon"
+	            android:paddingTop="15dp"
+	            android:paddingBottom="15dp" />
+	          <ImageView
+	            android:id="@+id/catagory_pub"
+	            android:layout_width="wrap_content"
+	            android:layout_weight="1"
+	            android:layout_height="match_parent"
+	            android:src="@drawable/pub_icon" 
+	            android:paddingTop="15dp"
+	            android:paddingBottom="15dp"/>
+            <ImageView
+	            android:id="@+id/catagory_random"
+	            android:layout_width="wrap_content"
+	            android:layout_weight="1"
+	            android:layout_height="match_parent"
+	            android:src="@drawable/random_icon" 
+	            android:paddingTop="15dp"
+	            android:paddingBottom="15dp"/>
 	        
-	    </RelativeLayout>
+	    </LinearLayout>
 	    
-	    <RelativeLayout 
+	    <LinearLayout 
 	        android:layout_width="match_parent"
 	        android:layout_margin="0dp"
+	        android:paddingLeft="30dp"
+	        android:paddingRight="30dp"
+	        android:orientation="horizontal"
 	    	android:layout_height="60dp"
 	    	android:visibility="gone"
-	    	android:background="#0f0"
+	    	android:background="#fff"
 	    	android:id="@+id/intensity_tray"
 	        >
-	        
-	    </RelativeLayout>
+	           <ImageView
+	            android:id="@+id/shot1"
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:src="@drawable/shotglass_icon"
+	            android:paddingTop="15dp"
+	            android:paddingBottom="15dp" />
+	          <ImageView
+	            android:id="@+id/shot2"
+	            android:layout_width="wrap_content"
+	            android:layout_weight="1"
+	            android:layout_height="match_parent"
+	            android:src="@drawable/shotglass_icon" 
+	            android:paddingTop="15dp"
+	            android:paddingBottom="15dp"/>
+            <ImageView
+	            android:id="@+id/shot3"
+	            android:layout_width="wrap_content"
+	            android:layout_weight="1"
+	            android:layout_height="match_parent"
+	            android:src="@drawable/shotglass_icon" 
+	            android:paddingTop="15dp"
+	            android:paddingBottom="15dp"/>
+            <ImageView
+	            android:id="@+id/shot4"
+	            android:layout_width="wrap_content"
+	            android:layout_weight="1"
+	            android:layout_height="match_parent"
+	            android:src="@drawable/shotglass_icon" 
+	            android:paddingTop="15dp"
+	            android:paddingBottom="15dp"/>
+            <ImageView
+	            android:id="@+id/shot5"
+	            android:layout_width="wrap_content"
+	            android:layout_weight="1"
+	            android:layout_height="match_parent"
+	            android:src="@drawable/shotglass_icon" 
+	            android:paddingTop="15dp"
+	            android:paddingBottom="15dp"/>
+	    </LinearLayout>
 	    
 	</RelativeLayout>
     
     <ListView
         android:id="@android:id/list"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content" 
+        android:dividerHeight="0px">
     </ListView>
 
 </LinearLayout>
