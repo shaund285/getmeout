@@ -11,6 +11,7 @@ import org.json.JSONObject;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.util.Base64;
 import android.util.Log;
 
 public class Event {
@@ -28,16 +29,29 @@ public class Event {
 	private static final String JSON_VENUE = "venue";
 	private static final String JSON_DATE = "date";
 	private static final String JSON_GOING = "going";
+	private static final String JSON_PIC = "image";
 	
 	/**
 	 * 
-	 * @param eventJson structure {name,pic,details,deal:{summary,price},venue:{coords,name}} 
+	 * @param eventJson structure {name,image,details,deal:{summary,price},venue:{coords,name}} 
 	 * @throws JSONException 
 	 */
 	public Event(Context context, JSONObject eventJson) throws JSONException{
 		name = eventJson.getString(JSON_NAME);
 		//TODO pic needs to come from json
-		pic = BitmapFactory.decodeResource(context.getResources(), R.drawable.results_card_events_pic);
+		Bitmap tempPic = BitmapFactory.decodeResource(context.getResources(), R.drawable.results_card_events_pic);;
+		try{
+			String image64 = eventJson.getString(JSON_PIC);
+			if(image64.matches("^([A-Za-z0-9+/]{4})*([A-Za-z0-9+/]{4}|[A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{2}==)$")){
+				byte[] imageAsBytes = Base64.decode(image64, Base64.NO_WRAP);
+				Bitmap image = BitmapFactory.decodeByteArray(imageAsBytes, 0, imageAsBytes.length);
+				tempPic = image;
+			}
+		}catch(Exception e){
+			 
+		}
+		pic = tempPic;
+		
 		details = eventJson.getString(JSON_DETAILS);
 		venue = new Venue (eventJson.getJSONObject(JSON_VENUE));
 		deal = new Deal(eventJson.getJSONObject(JSON_DEAL));

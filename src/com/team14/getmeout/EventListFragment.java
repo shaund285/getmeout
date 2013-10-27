@@ -6,7 +6,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -22,10 +21,11 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
 import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.app.ListFragment;
 import android.content.Context;
 import android.os.AsyncTask;
@@ -40,6 +40,7 @@ import android.view.animation.Animation;
 import android.view.animation.OvershootInterpolator;
 import android.view.animation.Transformation;
 import android.widget.Button;
+import android.widget.ListView;
 
 @SuppressLint("ValidFragment")
 public class EventListFragment extends ListFragment{
@@ -195,6 +196,16 @@ public class EventListFragment extends ListFragment{
 	    a.setDuration((int)(initialHeight / v.getContext().getResources().getDisplayMetrics().density));
 	    v.startAnimation(a);
 	}
+	
+	public void onListItemClick(ListView l, View v, int position, long id){
+		Event e = mAdapter.getItem(position);
+		EventPageFragment frag = new EventPageFragment(e);
+		FragmentManager fm = getFragmentManager();
+		FragmentTransaction ft = fm.beginTransaction();
+		ft.add(frag, null);
+		ft.commit();
+	}
+	
 	
 	private class EventsGetter extends AsyncTask<URI, Integer, JSONArray> {
 

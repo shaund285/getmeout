@@ -8,40 +8,57 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-//stub
-@SuppressLint("ValidFragment")
-public class EventPageFragment extends Fragment {
-	
-	public EventPageFragment(Event event) {
-		
-	}
-}
-/*
-import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.MapView;
+import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 @SuppressLint("ValidFragment")
 public class EventPageFragment extends Fragment {
 
+	private MapView mMapView;
+    private GoogleMap mMap;
+    private Bundle mBundle;
+    
 	public static final String MapFragmentTag = "MAP_FRAGMENT";
 	
 	public EventPageFragment(Event event) {
 		
 	}
 	
+    private void setUpMapIfNeeded(View inflatedView) {
+        if (mMap == null) {
+            mMap = ((MapView) inflatedView.findViewById(R.id.map)).getMap();
+            if (mMap != null) {
+                setUpMap();
+            }
+        }
+    }
+
+    private void setUpMap() {
+        mMap.addMarker(new MarkerOptions().position(new LatLng(0, 0)).title("Marker"));
+    }
+    
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		super.onCreateView(inflater, container, savedInstanceState);
 
-		MapFragment mapFragment = MapFragment.newInstance();
-		
-		FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-		fragmentTransaction.add(R.id.map_view, mapFragment, MapFragmentTag);
-		fragmentTransaction.commit();
+		View inflatedView = inflater.inflate(R.layout.event_page_layout, container, false);
+
+        try {
+            MapsInitializer.initialize(getActivity());
+        } catch (GooglePlayServicesNotAvailableException e) {
+            // TODO handle this situation
+        }
+
+        mMapView = (MapView) inflatedView.findViewById(R.id.map);
+        mMapView.onCreate(mBundle);
+        setUpMapIfNeeded(inflatedView);
+
+        
 		
 		EventDetailsFragment detailFragment = new EventDetailsFragment();
 		
@@ -50,14 +67,14 @@ public class EventPageFragment extends Fragment {
 		detailTransaction.commit();
 		
 		
-		return inflater.inflate(R.layout.event_page_layout, container, false);
+		return inflatedView;
 	}
 	
 	@Override
 	public void onStart() {
 		super.onStart();	
 		
-		MapFragment mapFragment = (MapFragment)getFragmentManager().findFragmentByTag(MapFragmentTag);
+		/*MapFragment mapFragment = (MapFragment)getFragmentManager().findFragmentByTag(MapFragmentTag);
 		
 		GoogleMap map = mapFragment.getMap();
 		map.getUiSettings().setAllGesturesEnabled(false);
@@ -71,7 +88,6 @@ public class EventPageFragment extends Fragment {
 		map.addMarker(new MarkerOptions()
 		.title("Sydney")
 		.snippet("The most populos city in Australia.")
-		.position(sydney));	
+		.position(sydney));	*/
 	}
 }
-*/

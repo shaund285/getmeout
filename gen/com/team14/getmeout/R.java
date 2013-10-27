@@ -253,7 +253,7 @@ containing a value of this type.
         public static final int left_drawer=0x7f050007;
         public static final int lineView=0x7f050020;
         public static final int linearLayout1=0x7f05001d;
-        public static final int map_view=0x7f050030;
+        public static final int map=0x7f050030;
         public static final int name_view=0x7f050034;
         public static final int none=0x7f050000;
         public static final int normal=0x7f050001;
