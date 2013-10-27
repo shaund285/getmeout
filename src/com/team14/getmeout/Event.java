@@ -1,6 +1,8 @@
 package com.team14.getmeout;
 
-import java.util.Date;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -9,6 +11,7 @@ import org.json.JSONObject;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.util.Log;
 
 public class Event {
 	private final String name;
@@ -38,9 +41,22 @@ public class Event {
 		details = eventJson.getString(JSON_DETAILS);
 		venue = new Venue (eventJson.getJSONObject(JSON_VENUE));
 		deal = new Deal(eventJson.getJSONObject(JSON_DEAL));
-		millisDate = new Date(eventJson.getString(JSON_DATE)).getTime();
+		DateFormat format = new SimpleDateFormat("dd MMM yyyy HH:mm:ss z");
+		String dateString = eventJson.getString(JSON_DATE).replaceAll("(?<=\\d)(st|nd|rd|th)\\b", "");
+		try {
+			
+			millisDate = format.parse(dateString).getTime();
+		} catch (ParseException e) {
+			DateFormat newFormat = new SimpleDateFormat("E d MMM yyyy");
+			try {
+				millisDate = newFormat.parse(dateString).getTime();
+			} catch (ParseException e1) {
+				Log.wtf("DIDNT WORK", "No it Didint");
+			}
+			
+		}
 		//demo solution, just get the length
-		goingContacts = new Contact [eventJson.getJSONArray(JSON_GOING).length()];
+		goingContacts = new Contact [1];
 	}
 	
 	public String getName(){
@@ -80,9 +96,11 @@ public class Event {
 		private double price; 
 		private String details;
 		
-		public Deal(JSONObject venueJson) throws JSONException{
+		public Deal(JSONObject venueJson) {
+			try{
 			price = venueJson.getDouble(JSON_PRICE);
 			details = venueJson.getString(JSON_DETAILS);
+			}catch(JSONException e){}
 		}
 		
 		public double getPrice(){
@@ -99,16 +117,19 @@ public class Event {
 		private static final String JSON_COORDS = "coords";
 		private static final String JSON_NAME = "name";
 
-		private final String name;
-		private final float[] coords;
+		private String name;
+		private float[] coords;
 		 
-		public Venue(JSONObject venueJson) throws JSONException{
-			name = venueJson.getString(JSON_NAME);
+		public Venue(JSONObject venueJson) {
 			
-			JSONArray coordsArray = venueJson.getJSONArray(JSON_COORDS);
 			coords = new float[2];
+			try{
+			JSONArray coordsArray = venueJson.getJSONArray(JSON_COORDS);
+			name = venueJson.getString(JSON_NAME);
 			coords[0] = (float) coordsArray.getDouble(0);
 			coords[1] = (float) coordsArray.getDouble(1);
+			}catch(JSONException e){
+			}
 		}
 		
 		public String getName(){

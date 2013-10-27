@@ -40,6 +40,7 @@ public class EventListAdapter extends ArrayAdapter<Event>{
 			holder.image = (ImageView) view.findViewById(R.id.event_image);
 			holder.name = (TextView) view.findViewById(R.id.name_view);
 			//holder.details = (TextView) view.findViewById(R.id.details_view);
+		
 			holder.date = (TextView) view.findViewById(R.id.date_view);
 			holder.price = (TextView) view.findViewById(R.id.price_view);
 			holder.transport = (ImageView) view.findViewById(R.id.transport_view);

@@ -60,7 +60,7 @@ public class EventListFragment extends ListFragment{
 		endDate = end;
 		startDate = start;
 		try {
-			this.eventsGetterUri = new URI("http://www.sth.com");
+			this.eventsGetterUri = new URI("http://desolate-beach-4233.herokuapp.com/events");
 		} 
 		catch (URISyntaxException e) {
 			Log.e("URI error", "Invaldi URI");
@@ -239,14 +239,16 @@ public class EventListFragment extends ListFragment{
 		
 		@Override
 		protected void onPostExecute(JSONArray json) {
-			try {
+			
 				for (int i = 0; i < json.length(); i++) {
-					mAdapter.add(new Event(getActivity(), json.getJSONObject(i)));
+					try {
+						mAdapter.add(new Event(getActivity(), json.getJSONObject(i)));
+					} catch (JSONException e) {
+						Log.e("ParseError", "Error while parsing json response");
+					}
 				}
 				mAdapter.notifyDataSetChanged();
-			} catch (JSONException e) {
-				Log.e("ParseError", "Error while parsing json response");
-			}
+			
 		}
 	}
 }

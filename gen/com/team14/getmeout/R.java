@@ -157,72 +157,6 @@ containing a value of this type.
     }
     public static final class drawable {
         public static final int clock_icon=0x7f020000;
-<<<<<<< HEAD
-        public static final int detail_holder=0x7f020001;
-        public static final int edit_text=0x7f020002;
-        public static final int home_button=0x7f020003;
-        public static final int ic_contact_picture_3=0x7f020004;
-        public static final int ic_launcher=0x7f020005;
-        public static final int logo=0x7f020006;
-        public static final int map_pin=0x7f020007;
-        public static final int result_card_bottom=0x7f020008;
-        public static final int results_card=0x7f020009;
-        public static final int results_card_events_pic=0x7f02000a;
-        public static final int results_card_main_pic=0x7f02000b;
-        public static final int today_down=0x7f02000c;
-        public static final int today_up=0x7f02000d;
-        public static final int tomorrow_down=0x7f02000e;
-        public static final int tomorrow_up=0x7f02000f;
-        public static final int walk_icon=0x7f020010;
-        public static final int week_down=0x7f020011;
-        public static final int week_up=0x7f020012;
-    }
-    public static final class id {
-        public static final int Button01=0x7f09001a;
-        public static final int action_settings=0x7f09002b;
-        public static final int budget_fragment_budgetText=0x7f090004;
-        public static final int budget_fragment_layout_go=0x7f090008;
-        public static final int budget_fragment_mode_tmrw=0x7f090006;
-        public static final int budget_fragment_mode_today=0x7f090005;
-        public static final int budget_fragment_mode_week=0x7f090007;
-        public static final int button1=0x7f090015;
-        public static final int button2=0x7f090019;
-        public static final int catagory_btn=0x7f09001f;
-        public static final int catagory_tray=0x7f090021;
-        public static final int contact_image=0x7f09000a;
-        public static final int contact_name=0x7f09000b;
-        public static final int details_view=0x7f090024;
-        public static final int drawer_day_date=0x7f09000d;
-        public static final int drawer_event_going=0x7f090011;
-        public static final int drawer_event_image=0x7f09000e;
-        public static final int drawer_event_name=0x7f09000f;
-        public static final int drawer_event_price=0x7f090012;
-        public static final int drawer_event_venue=0x7f090010;
-        public static final int drawer_layout=0x7f090000;
-        public static final int drawer_title_icon=0x7f090014;
-        public static final int drawer_title_text=0x7f090013;
-        public static final int event_card_bottom=0x7f090028;
-        public static final int event_card_main=0x7f090025;
-        public static final int event_extra=0x7f09002a;
-        public static final int event_image=0x7f090026;
-        public static final int event_row=0x7f090009;
-        public static final int event_venue=0x7f090029;
-        public static final int filter_tray=0x7f090020;
-        public static final int fragment_container=0x7f090001;
-        public static final int imageView1=0x7f090003;
-        public static final int intensity_btn=0x7f09001e;
-        public static final int intensity_tray=0x7f090022;
-        public static final int invite_contact_chk=0x7f09000c;
-        public static final int left_drawer=0x7f090002;
-        public static final int lineView=0x7f09001b;
-        public static final int linearLayout1=0x7f090018;
-        public static final int map_view=0x7f090023;
-        public static final int name_view=0x7f090027;
-        public static final int scrollView1=0x7f09001c;
-        public static final int textView1=0x7f090016;
-        public static final int textView2=0x7f090017;
-        public static final int textView3=0x7f09001d;
-=======
         public static final int club_icon=0x7f020001;
         public static final int common_signin_btn_icon_dark=0x7f020002;
         public static final int common_signin_btn_icon_disabled_dark=0x7f020003;
@@ -338,7 +272,6 @@ containing a value of this type.
         public static final int transport_view=0x7f05003a;
         public static final int travel_time_view=0x7f05003b;
         public static final int venue_name=0x7f050038;
->>>>>>> 61ad24badb8c460f097779416ef2c89ad56127fa
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
