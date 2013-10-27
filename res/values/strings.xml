@@ -6,5 +6,6 @@
     <string name="hello_world">Hello world!</string>
     <string name="budget_fragment_mode_week">This Week</string>
     <string name="budget_fragment_mode_today">Today</string>
+    <string name="logo_name">"Get Me Out "</string>
 
 </resources>
