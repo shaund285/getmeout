@@ -20,6 +20,8 @@ public class EventListAdapter extends ArrayAdapter<Event>{
 		public TextView date;
 		public TextView price;
 		public ImageView transport;	
+		public TextView venueName;
+		public TextView travelTime;
 	}
 	
 	public EventListAdapter(Context context, int resid, ArrayList<Event> items) {
@@ -38,9 +40,11 @@ public class EventListAdapter extends ArrayAdapter<Event>{
 			holder.image = (ImageView) view.findViewById(R.id.event_image);
 			holder.name = (TextView) view.findViewById(R.id.name_view);
 			//holder.details = (TextView) view.findViewById(R.id.details_view);
-			//holder.date = (TextView) view.findViewById(R.id.date_view);
-			//holder.price = (TextView) view.findViewById(R.id.price_view);
-			//holder.transport = (ImageView) view.findViewById(R.id.transport_view);
+			holder.date = (TextView) view.findViewById(R.id.date_view);
+			holder.price = (TextView) view.findViewById(R.id.price_view);
+			holder.transport = (ImageView) view.findViewById(R.id.transport_view);
+			holder.venueName = (TextView) view.findViewById(R.id.venue_name);
+			holder.travelTime = (TextView) view.findViewById(R.id.travel_time_view);
 			
 			view.setTag(holder);
 		} else {
@@ -51,9 +55,13 @@ public class EventListAdapter extends ArrayAdapter<Event>{
 		holder.image.setImageBitmap(mEvent.getPic());
 		holder.name.setText(mEvent.getName());
 		//holder.details.setText(mEvent.getName());
-		//holder.date.setText(mEvent.getName());
-		//holder.price.setText("£"+String.valueOf(mEvent.getTotalPrice()));
-		//TODO: add mode of tansportation icon
+		//holder.date.setText(mEvent.getDate()); // Might need additional formatting...
+		holder.price.setText("£"+String.valueOf(mEvent.getTotalPrice()));
+		//holder.transport.setImageResource(....);
+		//holder.venueName.setText(mEvent.getVenue().getName());
+		//holder.travelTime.setText(....);
+		
+		
 		return view;
 	}
 	

@@ -66,7 +66,9 @@ public class EventListFragment extends ListFragment{
         intensityTray = view.findViewById(R.id.intensity_tray);
         catagoryTray = view.findViewById(R.id.catagory_tray);
         
-        Button intensityBtn = (Button) view.findViewById(R.id.intensity_btn);
+        final Button intensityBtn = (Button) view.findViewById(R.id.intensity_btn);
+        final Button catagoryBtn = (Button) view.findViewById(R.id.catagory_btn);
+        
         intensityBtn.setOnClickListener(new OnClickListener(){
 
 			@Override
@@ -75,19 +77,22 @@ public class EventListFragment extends ListFragment{
 					intensityTray.setVisibility(View.VISIBLE);
 					catagoryTray.setVisibility(View.GONE);
 					expand(getActivity(),filterTray);
+					intensityBtn.setBackgroundResource(R.drawable.filter_selected);
 				} else {
 					if(intensityTray.getVisibility() == View.GONE){
 						catagoryTray.setVisibility(View.GONE);
 						intensityTray.setVisibility(View.VISIBLE);
+						intensityBtn.setBackgroundResource(R.drawable.filter_selected);
+						catagoryBtn.setBackgroundResource(R.drawable.filter_normal);
 					}else{
 						collapse(filterTray);
+						intensityBtn.setBackgroundResource(R.drawable.filter_normal);
 					}
 				}
 			}
         	
         });
         
-        Button catagoryBtn = (Button) view.findViewById(R.id.catagory_btn);
         catagoryBtn.setOnClickListener(new OnClickListener(){
 
 			@Override
@@ -96,13 +101,16 @@ public class EventListFragment extends ListFragment{
 					intensityTray.setVisibility(View.GONE);
 					catagoryTray.setVisibility(View.VISIBLE);	
 					expand(getActivity(),filterTray);
+					catagoryBtn.setBackgroundResource(R.drawable.filter_selected);
 				} else {
 					if(catagoryTray.getVisibility() == View.GONE){
 						catagoryTray.setVisibility(View.VISIBLE);
 						intensityTray.setVisibility(View.GONE);
+						intensityBtn.setBackgroundResource(R.drawable.filter_normal);
+						catagoryBtn.setBackgroundResource(R.drawable.filter_selected);
 					}else{
-						
 						collapse(filterTray);
+						catagoryBtn.setBackgroundResource(R.drawable.filter_normal);
 					}
 				}
 			}
@@ -111,7 +119,6 @@ public class EventListFragment extends ListFragment{
 		return view;
  	}
 	
-
 	public static void expand(Context context, final View v) {
 	
 	    v.measure(LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT);
