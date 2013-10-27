@@ -29,7 +29,7 @@ public class Event {
 	public Event(Context context, JSONObject eventJson) throws JSONException{
 		name = eventJson.getString(JSON_NAME);
 		//TODO pic needs to come from json
-		pic = BitmapFactory.decodeResource(context.getResources(), R.drawable.ic_contact_picture_3);
+		pic = BitmapFactory.decodeResource(context.getResources(), R.drawable.results_card_events_pic);
 		details = eventJson.getString(JSON_DETAILS);
 		venue = new Venue (eventJson.getJSONObject(JSON_VENUE));
 		deal = new Deal(eventJson.getJSONObject(JSON_DEAL));

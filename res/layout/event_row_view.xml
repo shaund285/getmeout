@@ -1,58 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="fill_parent"
-    android:layout_height="150dp"
-    android:id="@+id/event_row"
-    android:background="#000">
+    android:layout_height="wrap_content"
+    android:paddingLeft = "5dp"
+    android:paddingRight = "5dp"
+    android:paddingTop = "10dp"
+    android:paddingBottom = "10dp"
+    >
 
-    <TextView
-        android:id="@+id/name_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/event_image"
-        android:layout_marginLeft="16dp"
-        android:layout_toRightOf="@+id/event_image"
-        android:text="name"
-        android:textColor="#fff" />
+    <LinearLayout
+	   android:orientation="vertical"
+	   android:layout_width="fill_parent"
+	   android:layout_height="160dp"
+	   android:background="@drawable/results_card">
+	    <RelativeLayout 
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:id="@+id/event_card_main"
+	        >
 
-    <TextView
-        android:id="@+id/details_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/event_image"
-        android:layout_alignLeft="@+id/name_view"
-        android:text="details" 
-        android:textColor="#fff"/>
+	           <ImageView
+	               android:id="@+id/event_image"
+	               android:layout_width="match_parent"
+	               android:adjustViewBounds="true"
+	               android:layout_height="wrap_content"
+	               android:layout_alignParentLeft="true"
+	               android:layout_alignParentTop="true"
+	               android:layout_margin="0dp"
+	               android:src="@drawable/results_card_events_pic" />
 
-    <ImageView
-        android:id="@+id/event_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="21dp"
-        android:src="@drawable/ic_contact_picture_3" />
+	           <TextView
+	               android:id="@+id/name_view"
+	               android:layout_width="240dp"
+	               android:layout_height="wrap_content"
+	               android:layout_alignParentLeft="true"
+	               android:layout_alignParentTop="true"
+	               android:layout_marginLeft="5dp"
+	               android:layout_marginTop="5dp"
+	               android:text="This is a very very long title"
+	               android:textColor="#fff"
+	               android:textSize="25dp" />
+	            
+	    </RelativeLayout>
+  		
+	    <LinearLayout 
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:id="@+id/event_card_bottom"
+	        android:orientation="horizontal"
+	        >
+			<LinearLayout 
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:id="@+id/event_venue"
+		        android:layout_weight="1"
+		        android:orientation="horizontal"
+		        >
+		        <ImageView 
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:src="@drawable/map_pin"/>
+		        
+		        
+	           <TextView
+	               android:layout_marginTop="4dp"
+	               android:layout_marginRight="3dp"
+	               android:id="@+id/textView1"
+	               android:layout_width="wrap_content"
+	               android:layout_height="fill_parent"
+	               android:text="Apollo Theatre" 
+	               android:textSize="12dp"/>
+	           
+			    
+		   </LinearLayout>
+		
+	      <LinearLayout 
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:id="@+id/event_extra"
+		        android:layout_weight="1"
+		        android:orientation="horizontal"
+		        android:paddingTop="3dp"
+		        android:paddingBottom="3dp"
+		        android:gravity="right"
+		        >
+		        
+	           <ImageView 
+	               android:layout_marginRight="3dp"
+		            android:layout_width="10dp"
+		            android:layout_height="wrap_content"
+		            android:src="@drawable/walk_icon"/>
 
-            <TextView
-                android:id="@+id/price_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_above="@+id/name_view"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="14dp"
-                android:text="price"
-                android:textColor="#fff" />
+	           <TextView
+	               android:layout_marginTop="1dp"
+	               android:layout_marginRight="3dp"
+	               android:id="@+id/textView1"
+	               android:layout_width="wrap_content"
+	               android:layout_height="fill_parent"
+	               android:text="30 mins" 
+	               android:textSize="12dp"/>
+	           <ImageView 
+	               android:layout_marginRight="3dp"
+		            android:layout_width="10dp"
+		            android:layout_height="wrap_content"
+		            android:src="@drawable/clock_icon"/>
 
-            <TextView
-                android:id="@+id/date_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentLeft="true"
-                android:layout_marginBottom="26dp"
-                android:text="date"
-                android:textColor="#fff" />
-
+	           <TextView
+	               android:layout_marginTop="1dp"
+	               android:layout_marginRight="3dp"
+	               android:id="@+id/textView1"
+	               android:layout_width="wrap_content"
+	               android:layout_height="fill_parent"
+	               android:text="Mon 23:00" 
+	               android:textSize="12dp"/>
+	           
+		   </LinearLayout>
+	            
+	    </LinearLayout>
+	    
+	    	    
+    </LinearLayout>
+    
 </RelativeLayout>
