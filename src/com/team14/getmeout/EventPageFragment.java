@@ -1,5 +1,6 @@
 package com.team14.getmeout;
 
+import android.annotation.SuppressLint;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
@@ -13,9 +14,14 @@ import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+@SuppressLint("ValidFragment")
 public class EventPageFragment extends Fragment {
 
 	public static final String MapFragmentTag = "MAP_FRAGMENT";
+	
+	public EventPageFragment(Event event) {
+		
+	}
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
