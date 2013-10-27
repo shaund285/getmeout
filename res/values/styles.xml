@@ -15,8 +15,14 @@
     <!-- Application theme. -->
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+        <item name="android:actionBarStyle">@style/MyActionBar</item>
     </style>
-
+    
+    <!-- ActionBar styles -->
+    <style name="MyActionBar"
+           parent="@android:style/Widget.Holo.ActionBar">
+        <item name="android:background">@color/orange</item>
+    </style>
     
     <color name="orange">#f39c12</color>
 </resources>

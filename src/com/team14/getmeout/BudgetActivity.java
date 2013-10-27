@@ -32,6 +32,12 @@ public class BudgetActivity extends Activity {
 	    
 	    budgetEdt.setOnClickListener(new OnClickListener(){
 
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
 	    	
 	    });
 	}
