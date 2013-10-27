@@ -41,7 +41,7 @@ public class MainActivity extends Activity {
         this.drawerToggle = new ActionBarDrawerToggle(
                 this,                  /* host Activity */
                 profileDrawer,         /* DrawerLayout object */
-                R.drawable.ic_launcher,  /* nav drawer image to replace 'Up' caret */
+                R.drawable.ic_drawer,  /* nav drawer image to replace 'Up' caret */
                 R.string.accessibility_drawer_open,  /* "open drawer" description for accessibility */
                 R.string.accessibility_drawer_close  /* "close drawer" description for accessibility */
                 );
