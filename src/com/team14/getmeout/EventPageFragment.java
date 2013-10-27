@@ -1,5 +1,5 @@
 package com.team14.getmeout;
-
+/*
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
@@ -59,3 +59,4 @@ public class EventPageFragment extends Fragment {
 		.position(sydney));	
 	}
 }
+*/

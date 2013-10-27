@@ -30,44 +30,45 @@ public final class R {
         public static final int ic_launcher=0x7f020003;
     }
     public static final class id {
-        public static final int Button01=0x7f090016;
-        public static final int action_settings=0x7f090025;
+        public static final int Button01=0x7f090017;
+        public static final int action_settings=0x7f090026;
         public static final int budget_fragment_budgetText=0x7f090003;
         public static final int budget_fragment_layout_go=0x7f090004;
         public static final int budget_fragment_mode=0x7f090005;
         public static final int button1=0x7f090012;
-        public static final int button2=0x7f090015;
-        public static final int catagory_btn=0x7f09001b;
-        public static final int catagory_tray=0x7f09001d;
+        public static final int button2=0x7f090016;
+        public static final int catagory_btn=0x7f09001c;
+        public static final int catagory_tray=0x7f09001e;
         public static final int contact_image=0x7f090007;
         public static final int contact_name=0x7f090008;
-        public static final int date_view=0x7f090024;
-        public static final int details_view=0x7f090020;
+        public static final int date_view=0x7f090025;
+        public static final int details_view=0x7f090021;
         public static final int drawer_day_date=0x7f09000a;
-        public static final int drawer_event_going=0x7f090010;
+        public static final int drawer_event_going=0x7f09000e;
         public static final int drawer_event_image=0x7f09000b;
-        public static final int drawer_event_name=0x7f09000e;
-        public static final int drawer_event_price=0x7f09000c;
-        public static final int drawer_event_string=0x7f09000d;
-        public static final int drawer_event_venue=0x7f09000f;
+        public static final int drawer_event_name=0x7f09000c;
+        public static final int drawer_event_price=0x7f09000f;
+        public static final int drawer_event_venue=0x7f09000d;
         public static final int drawer_layout=0x7f090000;
-        public static final int event_image=0x7f090022;
+        public static final int drawer_title_icon=0x7f090011;
+        public static final int drawer_title_text=0x7f090010;
+        public static final int event_image=0x7f090023;
         public static final int event_row=0x7f090006;
-        public static final int filter_tray=0x7f09001c;
+        public static final int filter_tray=0x7f09001d;
         public static final int fragment_container=0x7f090001;
-        public static final int intensity_btn=0x7f09001a;
-        public static final int intensity_tray=0x7f09001e;
+        public static final int intensity_btn=0x7f09001b;
+        public static final int intensity_tray=0x7f09001f;
         public static final int invite_contact_chk=0x7f090009;
         public static final int left_drawer=0x7f090002;
-        public static final int lineView=0x7f090017;
-        public static final int linearLayout1=0x7f090014;
-        public static final int map_view=0x7f09001f;
-        public static final int name_view=0x7f090021;
-        public static final int price_view=0x7f090023;
-        public static final int scrollView1=0x7f090018;
-        public static final int textView1=0x7f090011;
-        public static final int textView2=0x7f090013;
-        public static final int textView3=0x7f090019;
+        public static final int lineView=0x7f090018;
+        public static final int linearLayout1=0x7f090015;
+        public static final int map_view=0x7f090020;
+        public static final int name_view=0x7f090022;
+        public static final int price_view=0x7f090024;
+        public static final int scrollView1=0x7f090019;
+        public static final int textView1=0x7f090013;
+        public static final int textView2=0x7f090014;
+        public static final int textView3=0x7f09001a;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
@@ -76,10 +77,11 @@ public final class R {
         public static final int contact_row_view=0x7f030003;
         public static final int drawer_list_day=0x7f030004;
         public static final int drawer_list_item=0x7f030005;
-        public static final int event_details_layout=0x7f030006;
-        public static final int event_list_fragment_layout=0x7f030007;
-        public static final int event_page_layout=0x7f030008;
-        public static final int event_row_view=0x7f030009;
+        public static final int drawer_title_item=0x7f030006;
+        public static final int event_details_layout=0x7f030007;
+        public static final int event_list_fragment_layout=0x7f030008;
+        public static final int event_page_layout=0x7f030009;
+        public static final int event_row_view=0x7f03000a;
     }
     public static final class menu {
         public static final int main=0x7f080000;

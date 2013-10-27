@@ -4,7 +4,8 @@ public class CalendarEntry {
 	
 	public static enum EntryType {
 		TYPE_EVENT,
-		TYPE_DATE
+		TYPE_DATE,
+		TYPE_TITLE
 	};
 	
 	private Event event = null;
@@ -19,6 +20,10 @@ public class CalendarEntry {
 	public CalendarEntry(String date) {
 		this.text = date;
 		this.type = CalendarEntry.EntryType.TYPE_DATE;
+	}
+	
+	public CalendarEntry() {
+		this.type = CalendarEntry.EntryType.TYPE_TITLE;
 	}
 	
 	public Event getEvent() {

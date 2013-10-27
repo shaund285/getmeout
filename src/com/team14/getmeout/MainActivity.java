@@ -10,7 +10,10 @@ import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.AdapterView.OnItemClickListener;
 
 public class MainActivity extends Activity {
 	private DrawerLayout profileDrawer;
@@ -46,7 +49,7 @@ public class MainActivity extends Activity {
         this.getActionBar().setDisplayHomeAsUpEnabled(true);
         this.getActionBar().setHomeButtonEnabled(true);
 		
-		Fragment fragment = new EventPageFragment();
+		Fragment fragment = new BudgetFragment();
 		FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
 		fragmentTransaction.add(R.id.fragment_container, fragment);
 		fragmentTransaction.commit();
@@ -83,5 +86,27 @@ public class MainActivity extends Activity {
         }
         return super.onOptionsItemSelected(item);
     }
+    
+    private class DrawerItemClickListener implements OnItemClickListener {
+
+    	@Override
+    	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+    		CalendarEntry entry = (CalendarEntry) parent.getItemAtPosition(position);
+    		if (entry.getType() == CalendarEntry.EntryType.TYPE_EVENT) {
+    			//event clicked, replace fragment
+    			//<<------------------------- TODO put correct params in the call------------------------>
+    			/*
+    			FragmentManager fm = getFragmentManager();
+    			FragmentTransaction ft = fm.beginTransaction();
+    			Fragment eventPageFragment = new EventPageFragment(entry.getEvent());
+    			ft.replace(R.id.fragment_container, eventPageFragment);
+    			ft.commit();
+    			*/
+    		}
+    		
+    	}
+
+    }
+
 
 }
